@@ -117,4 +117,4 @@ async def on_member_join(context):
 
 
 
-client.run('ODM4OTI3MDExNjk0OTAzMzA2.YJCNqg.-xUKl-nIJDNIp5gEeYVXogFmI0E')
+client.run('TOKENDOBOT')

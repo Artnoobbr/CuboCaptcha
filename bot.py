@@ -11,7 +11,7 @@ import os
 import time
 import asyncio
 
-# Permissão para O bot receber as informações de quem entra e sai do server
+# Intents do discord
 intents = discord.Intents.default()
 intents.members = True
 
@@ -22,7 +22,7 @@ client = commands.Bot(command_prefix="!", intents=intents)
 @client.event
 async def on_ready():
     print('Online!')
-#Evento quando o bot fica offiline
+#Evento quando o bot fica offline
 @client.event
 async def on_disconnect():
     print('Offline!')
@@ -34,7 +34,7 @@ async def ping(context):
         return
     await context.send(f"**Pong!** {context.author.mention} `{round(client.latency * 1000)}ms`")
     await context.message.delete()
-#Comando Versão
+#Comando Info
 @client.command(name='Info')
 async def Info(context):
     embed = discord.Embed(title='Informações sobre o Bot', description=f'O Bot Cubo Captcha é um bot de Captcha Simples em Pyhton', color=0xe91e63, timestamp=datetime.utcnow())
@@ -43,7 +43,7 @@ async def Info(context):
     embed.set_footer(text='Cubo Captcha ©2021')
     await context.send(embed=embed)
     await context.message.delete()
-#Captcha
+#Evento captcha
 @client.event
 async def on_member_join(context):
     if context.bot:
@@ -78,7 +78,6 @@ async def on_member_join(context):
     text = senha_aleatoria
     draw.text((156,42), text, (0,0,0), font=font)
     nome = f'{senha_aleatoria}.png'
-    print(nome)
     img.save(nome)
     await user.send('Olá! Tera 1 min para terminar o Captcha!',file = discord.File(nome))
     def check(m):

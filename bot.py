@@ -87,7 +87,6 @@ async def on_member_join(context):
         msg = await client.wait_for('message',timeout=60, check=check)
     except asyncio.TimeoutError:
         await user.send('O Tempo acabou! Tente entrar no server denovo para refazer!')
-        print(f'{context.name} não passou')
         os.remove(nome)
     else:
         await user.send('Verificado! de uma olhada no servidor')
